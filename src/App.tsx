@@ -4,10 +4,8 @@ import { invoke } from "@tauri-apps/api/tauri";
 
 function App() {
   const [jsonInput, setJsonInput] = createSignal("");
-
-  const invokeInput = () => ({ input: jsonInput(), query: query() });
-
   const [query, setQuery] = createSignal("");
+  const invokeInput = () => ({ input: jsonInput(), query: query() });
 
   const [data] = createResource(invokeInput, async (input) => {
     if (input.query === "") {
